@@ -218,7 +218,6 @@ namespace im_param_save_load {
                     return 0;
                 },
                 &user_data
-                // Func::Callback
             );
             
             static std::string combo_filename = "";
@@ -251,15 +250,6 @@ namespace im_param_save_load {
                 }
                 ImGui::EndCombo();
             }
-            // if (ImGui::Combo(
-            //     ImGuiCandy::append_id("filenamed",&combo_current).c_str(),
-            //     &combo_current,
-            //     combo_items.data(),
-            //     combo_items.size()
-            // ))
-            // {
-            //     filename = combo_items[combo_current];
-            // }
         }
 
         template <class value_type, class... Args>
@@ -267,8 +257,6 @@ namespace im_param_save_load {
         {
             if (changed_by_user)
             {
-                // auto serizalized = serialize(name, value, std::forward<Args>(args)...);
-                // history.push_back(serizalized);
                 changed |= true;
             }
 
