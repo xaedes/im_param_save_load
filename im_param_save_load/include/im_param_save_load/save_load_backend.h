@@ -59,7 +59,7 @@ namespace im_param_save_load {
         std::string serialize(const std::string& name, value_type& value, Args&&... args)
         {
             serializer_backend.clear();
-            serializer_backend.parameter(name, value, std::forward<Args>(args)...);
+            ::im_param::parameter(serializer_backend, name, value, std::forward<Args>(args)...);
             return serializer_backend.serialized();;
         }
 
@@ -69,7 +69,7 @@ namespace im_param_save_load {
             deserializer_backend.clear();
             deserializer_backend.changed = false;
             deserializer_backend.deserialize(serialized);
-            deserializer_backend.parameter(name, value, std::forward<Args>(args)...);
+            ::im_param::parameter(deserializer_backend, name, value, std::forward<Args>(args)...);
             return deserializer_backend.changed;
         }
 
